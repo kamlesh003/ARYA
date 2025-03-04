@@ -1,0 +1,151 @@
+1. Lambda Function to Merge Two Lists into a Dictionary:
+merge_lists = lambda keys, values: dict(zip(keys, values))
+
+keys = ["name", "age", "city"]
+values = ["Alice", 25, "New York"]
+result = merge_lists(keys, values)
+print(result)
+
+
+---
+  2. Class Product with Discount Calculation
+
+class Product:
+    discount_rate = 0.1  # Class variable (10% discount)
+
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+
+    def discounted_price(self):
+        return self.price * (1 - Product.discount_rate)
+
+p = Product("Laptop", 1000)
+print(f"Discounted Price: {p.discounted_price()}")
+
+---
+
+3. Shape Inheritance with Circle and Rectangle
+
+import math
+
+class Shape:
+    def area(self):
+        pass  # Abstract method
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return math.pi * self.radius ** 2
+
+class Rectangle(Shape):
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    def area(self):
+        return self.length * self.width
+
+circle = Circle(5)
+rectangle = Rectangle(4, 6)
+print(f"Circle Area: {circle.area()}")
+print(f"Rectangle Area: {rectangle.area()}")
+
+
+---
+
+4. Multiple Inheritance: Person, Employee, and Manager
+
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+    def display(self):
+        print(f"Name: {self.name}")
+
+class Employee:
+    def __init__(self, emp_id):
+        self.emp_id = emp_id
+
+    def show_id(self):
+        print(f"Employee ID: {self.emp_id}")
+
+class Manager(Person, Employee):
+    def __init__(self, name, emp_id, department):
+        Person.__init__(self, name)
+        Employee.__init__(self, emp_id)
+        self.department = department
+
+    def show_details(self):
+        self.display()
+        self.show_id()
+        print(f"Department: {self.department}")
+
+mgr = Manager("Alice", 101, "HR")
+mgr.show_details()
+
+
+---
+
+5. Polymorphism with play_sound()
+
+class Dog:
+    def make_sound(self):
+        return "Woof!"
+
+class Cat:
+    def make_sound(self):
+        return "Meow!"
+
+class Cow:
+    def make_sound(self):
+        return "Moo!"
+
+def play_sound(animal):
+    print(animal.make_sound())
+
+dog = Dog()
+cat = Cat()
+cow = Cow()
+
+play_sound(dog)
+play_sound(cat)
+play_sound(cow)
+
+
+---
+
+6. Car Rental System using OOP
+
+class Vehicle:
+    def __init__(self, brand, model, year, rental_price):
+        self.brand = brand
+        self.model = model
+        self.year = year
+        self.rental_price = rental_price
+
+    def get_details(self):
+        return f"{self.year} {self.brand} {self.model}, Rental Price: ${self.rental_price}/day"
+
+class Car(Vehicle):
+    def __init__(self, brand, model, year, rental_price, doors):
+        super().__init__(brand, model, year, rental_price)
+        self.doors = doors
+
+    def get_details(self):
+        return super().get_details() + f", Doors: {self.doors}"
+
+class Bike(Vehicle):
+    def __init__(self, brand, model, year, rental_price, type_of_bike):
+        super().__init__(brand, model, year, rental_price)
+        self.type_of_bike = type_of_bike
+
+    def get_details(self):
+        return super().get_details() + f", Type: {self.type_of_bike}"
+
+car = Car("Toyota", "Corolla", 2022, 50, 4)
+bike = Bike("Yamaha", "YZF-R3", 2021, 30, "Sport Bike")
+print(car.get_details())
+print(bike.get_details())
