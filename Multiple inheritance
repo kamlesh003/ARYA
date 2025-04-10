@@ -1,0 +1,30 @@
+# Parent class Father
+class Father:
+    def __init__(self, father_name, father_occupation):
+        self.father_name = father_name
+        self.father_occupation = father_occupation
+
+# Parent class Mother
+class Mother:
+    def __init__(self, mother_name, mother_occupation):
+        self.mother_name = mother_name
+        self.mother_occupation = mother_occupation
+
+class Child(Father, Mother):
+    def __init__(self, father_name, father_occupation, mother_name, mother_occupation, child_name)
+        Father.__init__(self, father_name, father_occupation)
+        Mother.__init__(self, mother_name, mother_occupation)
+        self.child_name = child_name
+
+    def show_family(self):
+        print(f"Child Name: {self.child_name}")
+        print(f"Father: {self.father_name}, Occupation: {self.father_occupation}")
+        print(f"Mother: {self.mother_name}, Occupation: {self.mother_occupation}")
+
+c = Child("John", "Engineer", "Emma", "Doctor", "Lucy")
+c.show_family()
+
+output:
+Child Name: Lucy
+Father: John, Occupation: Engineer
+Mother: Emma, Occupation: Doctor
