@@ -1,0 +1,23 @@
+class Student:
+    def __init__(self, name, marks):
+        self.name = name
+        self.__marks = marks  # Private attribute
+
+    def get_marks(self):
+        return self.__marks
+
+  
+    def set_marks(self, marks):
+        if 0 <= marks <= 100:
+            self.__marks = marks
+        else:
+           print("Invalid marks. Please enter a value between 0 and 100.")
+example:
+student1 = Student("Alice", 85)
+
+print(f"{student1.name}'s marks: {student1.get_marks()}")
+
+student1.set_marks(92)
+print(f"Updated marks: {student1.get_marks()}")
+
+student1.set_marks(110)
